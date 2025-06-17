@@ -36,8 +36,8 @@ jobs:
 
       - name: Restore and Build
         run: |
-          dotnet restore
-          dotnet build --no-restore --configuration Release
+          dotnet restore WebAppProject/WebAppProject.csproj
+          dotnet build WebAppProject/WebAppProject.csproj --no-restore --configuration Release
 
       - name: End Sonar Analysis
         env:
