@@ -1,9 +1,13 @@
 name: Build & Scan App Image
 
 on:
-  push:
-    branches: [dev]
-
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: "Branch to scan"
+        required: true
+        default: "dev"
+        
 permissions:
   contents: read
   security-events: write
