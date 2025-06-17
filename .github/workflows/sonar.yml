@@ -3,7 +3,7 @@ name: SonarQube
 on:
   push:
     branches:
-      - main # หรือ master ตามที่คุณใช้
+      - dev # หรือ master ตามที่คุณใช้
   pull_request:
     types: [opened, synchronize, reopened]
 
@@ -32,7 +32,7 @@ jobs:
             /k:"${{ secrets.SONAR_PROJECT_KEY }}" \
             /o:"${{ secrets.SONAR_ORGANIZATION }}" \
             /d:sonar.login="${{ secrets.SONAR_TOKEN }}" \
-            /d:sonar.branch.name=main
+            /d:sonar.branch.name=dev`
 
       - name: Restore and Build
         run: |
