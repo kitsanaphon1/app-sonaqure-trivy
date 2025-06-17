@@ -7,7 +7,7 @@ on:
         description: "Branch to scan"
         required: true
         default: "dev"
-        
+
 permissions:
   contents: read
   security-events: write
@@ -37,7 +37,7 @@ jobs:
           dotnet-sonarscanner begin /k:"${{ secrets.SONAR_PROJECT_KEY }}" \
             /o:"${{ secrets.SONAR_ORGANIZATION }}" \
             /d:sonar.login="${{ secrets.SONAR_TOKEN }}" \
-            /d:sonar.branch.name=dev
+            /d:sonar.branch.name="${{ github.event.inputs.branch }}"
 
       - name: Restore and Build
         run: |
@@ -99,4 +99,4 @@ jobs:
             ✅ App pipeline completed successfully.
             - Docker image: sooyaa02/app-pass:latest
             - Trivy scan: ✅ No CRITICAL vulnerabilities
-            - SonarCloud scan: ✅ Passed for dev branch
+            - SonarCloud scan: ✅ Passed for branch '${{ github.event.inputs.branch }}'
