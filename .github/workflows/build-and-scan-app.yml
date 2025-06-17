@@ -33,6 +33,7 @@ jobs:
           dotnet-sonarscanner begin /k:"${{ secrets.SONAR_PROJECT_KEY }}" \
             /o:"${{ secrets.SONAR_ORGANIZATION }}" \
             /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+            /d:sonar.branch.name=dev
 
       - name: Restore and Build
         run: |
