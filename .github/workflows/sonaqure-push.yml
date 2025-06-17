@@ -1,4 +1,4 @@
-name: Build & Scan App Image
+name: add sonaqure and trivy scan
 
 on:
   workflow_dispatch:
